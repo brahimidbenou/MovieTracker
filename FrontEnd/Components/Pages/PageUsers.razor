@@ -1,0 +1,51 @@
+@page "/Users"
+@using FrontEnd.Components.Shared
+@inject NavigationManager NavigationManager
+@inject ListUsers UserService
+@using FrontEnd.Services
+
+<div class="film-list-container">
+    <div class="container">
+        <h3 class="text-black mb-5 text-center display-4">Listes des utilisateurs</h3>
+
+        @if (users == null)
+        {
+            <div class="loading-text">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        else if (!users.Any())
+        {
+            <div class="alert alert-info text-center">Aucun utilisateur est disponible pour le moment</div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var user in users)
+                {
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">@user.Nom</h5>
+                                <p class="card-text">
+                                    <strong>Rôle :</strong> @user.RoleType <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    List<User> users = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await UserService.GetList();
+    }
+}
