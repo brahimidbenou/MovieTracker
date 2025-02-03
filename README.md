@@ -1,69 +1,67 @@
-# Application de Recherche de Films
+# Movie Search Application
 
-Une application web permettant aux utilisateurs de rechercher des films, de gérer leurs favoris, et d'importer des films depuis l'API OMDB. L'application inclut une gestion des utilisateurs avec des rôles (admin/utilisateur) et une authentification sécurisée via JWT.
+A web application that allows users to search for movies, manage their favorites, and import movies from the OMDB API. The application includes user management with roles (admin/user) and secure authentication via JWT.
 
-## Fonctionnalités
+## Features
 
 ### Backend
-- **Authentification JWT** : Sécurisation des routes et gestion des utilisateurs.
-- **Base de données SQLite** : Utilisation d'Entity Framework pour la persistance des données.
-- **Controllers** :
-  - **User** : Gestion des utilisateurs.
-  - **Favorite** : Gestion des films favoris.
-  - **Movie** : Gestion des films.
-  - **OMDB** : Recherche et importation de films depuis l'API OMDB.
-- **Services** :
-  - **JWT Service** : Gestion des tokens JWT.
-  - **OMDB Service** : Communication avec l'API OMDB.
-- **Gestion des erreurs** : Retour de codes HTTP appropriés (200, 404, 500, etc.).
-- **Async/Await** : Utilisation pour les appels API et l'accès à la base de données.
+- **JWT Authentication**: Securing routes and managing users.
+- **SQLite Database**: Using Entity Framework for data persistence.
+- **Controllers**:
+  - **User**: User management.
+  - **Favorite**: Managing favorite movies.
+  - **Movie**: Managing movies.
+  - **OMDB**: Searching and importing movies from the OMDB API.
+- **Services**:
+  - **JWT Service**: Handling JWT tokens.
+  - **OMDB Service**: Communicating with the OMDB API.
+- **Error Handling**: Returning appropriate HTTP codes (200, 404, 500, etc.).
+- **Async/Await**: Used for API calls and database access.
 
 ### Frontend (Blazor)
-- **Authentification** : Formulaire de connexion et d'inscription.
-- **Liste des films** : Affichage sous forme de cartes, possibilité d'ajouter/retirer des favoris.
-- **Favoris** : Page dédiée pour afficher les films favoris de l'utilisateur.
-- **Administration** :
-  - Importation de films depuis l'API OMDB.
-- **Services** :
-  - **AuthService** : Gestion de l'authentification.
-  - **UserService** : Gestion des utilisateurs.
-  - **FavoriteService** : Gestion des favoris.
-  - **MovieService** : Gestion des films.
-- **Protection des routes** : Accès restreint en fonction des rôles (admin/utilisateur).
-- **Stockage du token JWT** : Dans le local storage pour les requêtes authentifiées.
+- **Authentication**: Login and registration forms.
+- **Movie List**: Displayed as cards, with the ability to add/remove favorites.
+- **Favorites**: A dedicated page to display the user's favorite movies.
+- **Administration**:
+  - Importing movies from the OMDB API.
+- **Services**:
+  - **AuthService**: Handling authentication.
+  - **UserService**: Managing users.
+  - **FavoriteService**: Managing favorites.
+  - **MovieService**: Managing movies.
+- **Route Protection**: Restricted access based on roles (admin/user).
+- **JWT Token Storage**: Stored in local storage for authenticated requests.
 
-## Technologies Utilisées
+## Technologies Used
 
 ### Backend
-- **ASP.NET Core** : Framework pour le développement de l'API.
-- **Entity Framework Core** : ORM pour la gestion de la base de données SQLite.
-- **JWT (JSON Web Tokens)** : Pour l'authentification sécurisée.
-- **OMDB API** : Pour la recherche et l'importation de films.
-- **Dependency Injection** : Pour une gestion propre des services.
+- **ASP.NET Core**: Framework for API development.
+- **Entity Framework Core**: ORM for managing the SQLite database.
+- **JWT (JSON Web Tokens)**: For secure authentication.
+- **OMDB API**: For searching and importing movies.
+- **Dependency Injection**: For clean service management.
 
 ### Frontend
-- **Blazor** : Framework pour le développement de l'interface utilisateur.
-- **Bootstrap** : Pour le style et la mise en page.
-- **Bootstrap Icons** : Pour les icônes.
-- **Local Storage** : Pour stocker le token JWT.
+- **Blazor**: Framework for UI development.
+- **Bootstrap**: For styling and layout.
+- **Bootstrap Icons**: For icons.
+- **Local Storage**: For storing the JWT token.
 
 ## Installation
 
-### Prérequis
-- [.NET SDK](https://dotnet.microsoft.com/download) (version 9.0 ou supérieure)
+### Prerequisites
+- [.NET SDK](https://dotnet.microsoft.com/download) (version 9.0 or higher)
 
-### Étapes
-1. **Cloner le dépôt** :
+### Steps
+1. **Clone the repository**:
    ```bash
    git clone https://gitlab.isima.fr/webapp/filmsapp.git
+   ```
 
-2. **Commandes d'éxecution** :
+2. **Execution Commands**:
    ```bash
    dotnet clean
    dotnet restore
    dotnet build
    dotnet watch
-
-## Problèmes Rencontrés
-1. Lors de la suppression du dernier élément de la page des favoris, la liste ne se met pas à jour automatiquement. Il est nécessaire de rafraîchir manuellement la page pour que la liste vide s'affiche correctement.
-2. Gestion de la page Admin
+   ```
